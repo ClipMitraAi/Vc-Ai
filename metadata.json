@@ -1,0 +1,7 @@
+{
+  "name": "VC AI - Personal AI Companion & Smart Assistant",
+  "description": "VC AI is an advanced personal AI companion, emotional partner, and productivity assistant with natural Hinglish/Hindi/English conversation, romantic mode, voice interaction, and smart everyday tools.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
