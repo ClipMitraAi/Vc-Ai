@@ -33,10 +33,19 @@ jobs:
           gradle-version: '8.7'
 
       - name: Build Debug APK (phone mein install ke liye)
-        run: gradle assembleDebug --stacktrace
+        run: gradle assembleDebug --console=plain 2>&1 | tee build.log; exit ${PIPESTATUS[0]}
+
+      # Build fail ho to sirf asli error lines yahan dikhengi
+      - name: Show real errors
+        if: failure()
+        run: |
+          echo "===== WHAT WENT WRONG ====="
+          grep -n -A12 "What went wrong" build.log || true
+          echo "===== KOTLIN / COMPILE ERRORS ====="
+          grep -n -E "^e: |error:|Execution failed|Caused by" build.log | head -40 || true
 
       - name: Build Release APK
-        run: gradle assembleRelease --stacktrace
+        run: gradle assembleRelease --console=plain
 
       - name: Upload APKs
         uses: actions/upload-artifact@v4
