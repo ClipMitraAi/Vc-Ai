@@ -1,0 +1,12 @@
+<resources>
+    <color name="black_hud">#040812</color>
+    <color name="card_bg">#091426</color>
+    <color name="cyan_primary">#00F0FF</color>
+    <color name="cyan_glow">#38BDF8</color>
+    <color name="neon_blue">#0099FF</color>
+    <color name="neon_green">#10B981</color>
+    <color name="amber_warning">#F59E0B</color>
+    <color name="crimson_alert">#EF4444</color>
+    <color name="text_white">#FFFFFF</color>
+    <color name="text_slate">#94A3B8</color>
+</resources>

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#08182b"/>
+      <stop offset="100%" stop-color="#030712"/>
+    </radialGradient>
+    <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00f0ff" stop-opacity="1"/>
+      <stop offset="50%" stop-color="#0099ff" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#00f0ff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="512" height="512" rx="110" fill="url(#bg)"/>
+  <rect width="512" height="512" rx="110" fill="none" stroke="#00f0ff" stroke-width="6" stroke-opacity="0.3"/>
+
+  <!-- Outer Orbit Rings -->
+  <circle cx="256" cy="256" r="180" fill="none" stroke="#00f0ff" stroke-width="2" stroke-dasharray="16 12" stroke-opacity="0.4"/>
+  <circle cx="256" cy="256" r="140" fill="none" stroke="#38bdf8" stroke-width="3" stroke-opacity="0.6" filter="url(#glow)"/>
+  
+  <!-- Angled Orbital Ellipses -->
+  <ellipse cx="256" cy="256" rx="200" ry="70" fill="none" stroke="#00f0ff" stroke-width="2" stroke-opacity="0.35" transform="rotate(-30 256 256)"/>
+  <ellipse cx="256" cy="256" rx="200" ry="70" fill="none" stroke="#00f0ff" stroke-width="2" stroke-opacity="0.35" transform="rotate(30 256 256)"/>
+
+  <!-- Inner Reactor Core -->
+  <circle cx="256" cy="256" r="80" fill="url(#coreGlow)"/>
+  <circle cx="256" cy="256" r="50" fill="#040d1a" stroke="#00f0ff" stroke-width="4" filter="url(#glow)"/>
+  <circle cx="256" cy="256" r="22" fill="#00f0ff" filter="url(#glow)"/>
+
+  <!-- Corner Reticles -->
+  <path d="M 60 110 L 60 60 L 110 60" fill="none" stroke="#00f0ff" stroke-width="4" stroke-opacity="0.5"/>
+  <path d="M 452 110 L 452 60 L 402 60" fill="none" stroke="#00f0ff" stroke-width="4" stroke-opacity="0.5"/>
+  <path d="M 60 402 L 60 452 L 110 452" fill="none" stroke="#00f0ff" stroke-width="4" stroke-opacity="0.5"/>
+  <path d="M 452 402 L 452 452 L 402 452" fill="none" stroke="#00f0ff" stroke-width="4" stroke-opacity="0.5"/>
+
+  <!-- Text -->
+  <text x="256" y="380" font-family="'Courier New', monospace" font-size="28" font-weight="900" fill="#00f0ff" text-anchor="middle" letter-spacing="8">VC AI</text>
+  <text x="256" y="410" font-family="'Courier New', monospace" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="middle" letter-spacing="4">COMMAND CENTER</text>
+</svg>

@@ -8,7 +8,8 @@ import {
   User,
   Menu,
   ShieldCheck,
-  Sparkles
+  Sparkles,
+  Smartphone
 } from 'lucide-react';
 import { UserProfile } from '../types';
 
@@ -18,6 +19,7 @@ interface JarvisHeaderProps {
   userProfile: UserProfile;
   onSearchFocus?: () => void;
   onOpenNotifications?: () => void;
+  onOpenAndroidExport?: () => void;
 }
 
 export const JarvisHeader: React.FC<JarvisHeaderProps> = ({
@@ -26,6 +28,7 @@ export const JarvisHeader: React.FC<JarvisHeaderProps> = ({
   userProfile,
   onSearchFocus,
   onOpenNotifications,
+  onOpenAndroidExport,
 }) => {
   const [timeStr, setTimeStr] = useState('');
   const [dateStr, setDateStr] = useState('');
@@ -136,6 +139,20 @@ export const JarvisHeader: React.FC<JarvisHeaderProps> = ({
           <Bell className="w-4 h-4" />
           <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#00f0ff] shadow-[0_0_6px_#00f0ff] animate-ping" />
         </button>
+
+        {/* Android APK & Project Export Button */}
+        {onOpenAndroidExport && (
+          <button
+            onClick={onOpenAndroidExport}
+            title="Android APK & Studio Project Export"
+            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-gradient-to-r from-emerald-500/20 to-[#00f0ff]/20 hover:from-emerald-500/30 hover:to-[#00f0ff]/30 border border-emerald-400/40 text-emerald-300 hover:text-white transition shadow-[0_0_12px_rgba(16,185,129,0.2)]"
+          >
+            <Smartphone className="w-3.5 h-3.5 text-emerald-400" />
+            <span className="text-[11px] font-mono font-bold tracking-wider hidden sm:inline uppercase">
+              Android APK
+            </span>
+          </button>
+        )}
 
         {/* Settings Cog */}
         <button

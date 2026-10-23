@@ -12,7 +12,8 @@ import {
   GitFork,
   Mic,
   MicOff,
-  Zap
+  Zap,
+  Smartphone
 } from 'lucide-react';
 
 export type JarvisTab =
@@ -36,6 +37,7 @@ interface JarvisSidebarProps {
   isListening: boolean;
   onToggleVoice: () => void;
   onOpenFocus: () => void;
+  onOpenAndroidExport?: () => void;
   isMobileOpen: boolean;
   onCloseMobile: () => void;
 }
@@ -49,6 +51,7 @@ export const JarvisSidebar: React.FC<JarvisSidebarProps> = ({
   isListening,
   onToggleVoice,
   onOpenFocus,
+  onOpenAndroidExport,
   isMobileOpen,
   onCloseMobile,
 }) => {
@@ -195,6 +198,17 @@ export const JarvisSidebar: React.FC<JarvisSidebarProps> = ({
             <Zap className="w-3.5 h-3.5" />
             <span>Focus Mode</span>
           </button>
+
+          {/* Android APK & Studio Project Export Button */}
+          {onOpenAndroidExport && (
+            <button
+              onClick={onOpenAndroidExport}
+              className="w-full py-2 px-3 rounded-xl bg-gradient-to-r from-emerald-500/20 to-teal-500/20 hover:from-emerald-500/30 hover:to-teal-500/30 border border-emerald-400/30 text-emerald-300 text-xs font-mono font-medium tracking-wide flex items-center justify-center gap-2 transition active:scale-95 shadow-[0_0_12px_rgba(16,185,129,0.15)] mt-2"
+            >
+              <Smartphone className="w-3.5 h-3.5 text-emerald-400" />
+              <span>Android APK / App</span>
+            </button>
+          )}
         </div>
       </aside>
     </>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">VC AI Command Center</string>
+    <string name="system_optimal">SYSTEM STATUS: OPTIMAL</string>
+    <string name="listening_prompt">Listening... speak to VC AI</string>
+    <string name="ask_placeholder">Ask VC AI anything or command autonomous actions...</string>
+    <string name="action_complete">Action executed autonomously</string>
+</resources>

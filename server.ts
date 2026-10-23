@@ -520,6 +520,19 @@ app.post('/api/tts', async (req: Request, res: Response) => {
   }
 });
 
+// Endpoint to download the complete Native Android Studio Kotlin/Compose project
+app.get('/api/download-android-project', (req: Request, res: Response) => {
+  const zipPath = path.resolve(__dirname, 'public', 'downloads', 'vc-ai-android-project.zip');
+  res.download(zipPath, 'vc-ai-android-project.zip', (err) => {
+    if (err) {
+      console.error('Download error:', err);
+      if (!res.headersSent) {
+        res.status(404).json({ error: 'Android project ZIP not found.' });
+      }
+    }
+  });
+});
+
 // Serve frontend: Vite middleware in dev, dist in prod
 async function startServer() {
   if (process.env.NODE_ENV !== 'production') {

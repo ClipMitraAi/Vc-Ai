@@ -29,6 +29,7 @@ import { RemindersDrawer } from './components/RemindersDrawer';
 import { FocusTimerModal } from './components/FocusTimerModal';
 import { ImageStudioModal } from './components/ImageStudioModal';
 import { SettingsModal } from './components/SettingsModal';
+import { AndroidExportModal } from './components/AndroidExportModal';
 
 const STORAGE_KEYS = {
   THREADS: 'vc_ai_threads',
@@ -138,6 +139,7 @@ export default function App() {
   const [focusModalOpen, setFocusModalOpen] = useState(false);
   const [imageStudioOpen, setImageStudioOpen] = useState(false);
   const [settingsModalOpen, setSettingsModalOpen] = useState(false);
+  const [androidModalOpen, setAndroidModalOpen] = useState(false);
 
   const abortControllerRef = useRef<AbortController | null>(null);
 
@@ -473,6 +475,7 @@ export default function App() {
           setIsChatDrawerOpen(true);
         }}
         onOpenFocus={() => setFocusModalOpen(true)}
+        onOpenAndroidExport={() => setAndroidModalOpen(true)}
         isMobileOpen={isMobileSidebarOpen}
         onCloseMobile={() => setIsMobileSidebarOpen(false)}
       />
@@ -486,6 +489,7 @@ export default function App() {
           userProfile={userProfile}
           onSearchFocus={() => setIsChatDrawerOpen(true)}
           onOpenNotifications={() => setRemindersDrawerOpen(true)}
+          onOpenAndroidExport={() => setAndroidModalOpen(true)}
         />
 
         {/* HUD Main Scrollable Grid */}
@@ -662,6 +666,11 @@ export default function App() {
           setMemories(DEFAULT_MEMORIES);
           setReminders([]);
         }}
+      />
+
+      <AndroidExportModal
+        isOpen={androidModalOpen}
+        onClose={() => setAndroidModalOpen(false)}
       />
     </div>
   );
